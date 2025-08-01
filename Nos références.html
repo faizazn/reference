@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Rubik:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <style>
+    :root {
+      --wp--preset--aspect-ratio--square: 1;
+      --wp--preset--font-family--base-font: Roboto, sans-serif;
+      --wp--preset--font-family--heading-font: Rubik, sans-serif;
+      --wp--preset--aspect-ratio--4-3: 4 / 3;
+      --wp--preset--aspect-ratio--3-4: 3 / 4;
+      --wp--preset--aspect-ratio--3-2: 3 / 2;
+      --wp--preset--aspect-ratio--2-3: 2 / 3;
+      --wp--preset--aspect-ratio--16-9: 16 / 9;
+      --wp--preset--aspect-ratio--9-16: 9 / 16;
+      --wp--preset--color--black: #000000;
+      --wp--preset--color--cyan-bluish-gray: #abb8c3;
+      --wp--preset--color--white: #ffffff;
+      --wp--preset--color--pale-pink: #f78da7;
+      --wp--preset--color--vivid-red: #cf2e2e;
+      --wp--preset--color--luminous-vivid-orange: #ff6900;
+      --wp--preset--color--luminous-vivid-amber: #fcb900;
+      --wp--preset--color--light-green-cyan: #7bdcb5;
+      --wp--preset--color--vivid-green-cyan: #00d084;
+      --wp--preset--color--pale-cyan-blue: #8ed1fc;
+      --wp--preset--color--vivid-cyan-blue: #0693e3;
+      --wp--preset--color--vivid-purple: #9b51e0;
+      --wp--preset--color--dark: #1b1d1e;
+      --wp--preset--color--light: #ffffff;
+      --wp--preset--color--primary: #00a88f;
+      --wp--preset--color--primary-dark: #007564;
+      --wp--preset--color--secondary: #44bbd8;
+      --wp--preset--color--color-1: #f5f5f5;
+      --wp--preset--color--color-2: #9fa4a6;
+      --wp--preset--color--color-3: #404344;
+      --wp--preset--color--color-4: #838a8d;
+      --wp--preset--color--color-5: #dfe4e3;
+      --wp--preset--color--color-6: #f8f7f7;
+      --wp--preset--color--color-7: #00241e;
+      --wp--preset--color--color-bg: #f6f6f6;
+    }
+    body {
+      scrollbar-width: thin;
+      scrollbar-color: var(--wp--preset--color--primary) #fff;
+    }
+    body {
+      background-color: var(--wp--preset--color--light);
+      color: var(--wp--preset--color--dark);
+      font-family: var(--wp--preset--font-family--base-font);
+      font-size: 16px;
+      font-weight: 400;
+      line-height: var(--wp--custom--line-height--body);
+      --wp--style--root--padding-top: var(--wp--preset--spacing--small);
+      --wp--style--root--padding-right: var(--wp--preset--spacing--small);
+      --wp--style--root--padding-bottom: var(--wp--preset--spacing--small);
+      --wp--style--root--padding-left: var(--wp--preset--spacing--small);
+    }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+    .hero {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero__container {
+      max-width: unset;
+      padding: 0;
+    }
+    .hero__media {
+      position: relative;
+    }
+    .hero__media::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      z-index: 1;
+      background-color: var(--wp--preset--color--color-7);
+      opacity: 0.3;
+    }
+    .hero__media__video,
+    .hero__media__img {
+      font-size: 0;
+      position: relative;
+    }
+    .hero__content {
+      position: absolute;
+      left: 50%;
+      bottom: 3rem;
+      transform: translateX(-50%);
+      max-width: 84.375rem;
+      width: 100%;
+      padding: 0 0.9375rem;
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+      gap: 1.25rem;
+      color: var(--wp--preset--color--light);
+      z-index: 1;
+    }
+    .hero__media__video video,
+    .hero__media__video img,
+    .hero__media__img video,
+    .hero__media__img img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    img,
+    svg {
+      height: auto;
+      max-width: 100%;
+      vertical-align: middle;
+    }
+    .hero__title {
+      width: 100%;
+      margin-bottom: 0;
+      font-size: 2.25rem;
+      line-height: 1.0555555556;
+    }
+
+    .hero__info {
+      width: 100%;
+    }
+    .hero__description p {
+      color: var(--wp--preset--color--light);
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+    
+	.projects{
+    margin: 59px;
+  }
+	.projects div img{
+		width: 400px;
+		height: 300px;
+		border: 2px solid #ff3d0036;
+		border-radius: 13px;
+		box-shadow: 4px 7px 7px 0 #00000042;
+		cursor: pointer;
+		margin: 10px;
+		transition: 400ms;
+	}
+	.projects div img:hover{
+		filter:grayscale(1);
+		transform: scale(1.03);
+	}
+ .filter-container {
+  display: flex;
+  gap: 10px;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  width: fit-content;
+  /*box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);*/
+}
+
+.filter-container label {
+  font-weight: 600;
+  color: #333;
+  font-size: 1.3rem;
+}
+
+.filter-container select {
+  padding: 6px 12px;
+  border-radius: 5px;
+  border: 1px solid #ff6900;
+  background-color: transparent;
+  font-size: 15px;
+  transition: border-color 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.filter-container select:focus {
+  border-color: #ff6900;
+  outline: none;
+}
+.images-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+
+
+.project-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.project-card h3 {
+  font-size: 1.3rem;
+  margin-top: 10px;
+  margin-left: 15px;
+}
+.project-card {
+  
+  
+  margin: 10px;
+}
+
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image-container img {
+  width: 100%;
+  display: block;
+  border-radius: 8px;
+
+}
+
+/* Bloc infos dans l’image */
+.info-hover {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Sombre transparent */
+  color: white;
+  
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  margin: 10px;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 8px;
+}
+
+/* Affiche infos au hover */
+.image-container:hover .info-hover {
+  opacity: 1;
+}
+
+
+  </style>
+  <body>
+    
+      <style>
+        .hero {
+          position: relative;
+          overflow: hidden;
+        }
+        .hero__container {
+          max-width: unset;
+          padding: 0;
+        }
+        .hero__content {
+          position: absolute;
+          left: 50%;
+          bottom: 3rem;
+          transform: translateX(-50%);
+          max-width: 84.375rem;
+          width: 100%;
+          padding: 0 0.9375rem;
+          display: flex;
+          align-items: flex-end;
+          flex-direction: column;
+          gap: 1.25rem;
+          color: var(--wp--preset--color--light);
+          z-index: 1;
+        }
+        @media (min-width: 768px) {
+          .hero__content {
+            flex-direction: row;
+          }
+        }
+        @media (min-width: 992px) {
+          .hero__content {
+            bottom: 3.875rem;
+          }
+        }
+        @media (min-width: 1200px) {
+          .hero__content {
+            bottom: 8rem;
+          }
+        }
+        .hero__media {
+          position: relative;
+        }
+        .hero__media::before {
+          content: "";
+          display: block;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          top: 0;
+          z-index: 1;
+          background-color: var(--wp--preset--color--color-7);
+          opacity: 0.3;
+        }
+        .hero__media__video,
+        .hero__media__img {
+          font-size: 0;
+          position: relative;
+        }
+        .hero__media__video::after,
+        .hero__media__img::after {
+          content: "";
+          display: block;
+          padding-bottom: 141.0666666667%;
+        }
+        @media (min-width: 576px) {
+          .hero__media__video::after,
+          .hero__media__img::after {
+            padding-bottom: 100%;
+          }
+        }
+        @media (min-width: 768px) {
+          .hero__media__video::after,
+          .hero__media__img::after {
+            padding-bottom: 51.3555555556%;
+          }
+        }
+        @media (min-width: 1440px) {
+          .hero__media__video::after,
+          .hero__media__img::after {
+            padding-bottom: 46.25rem;
+          }
+        }
+        .hero__media__video video,
+        .hero__media__video img,
+        .hero__media__img video,
+        .hero__media__img img {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+        }
+        .hero__title {
+          width: 100%;
+          margin-bottom: 0;
+          font-size: 2.25rem;
+          line-height: 1.0555555556;
+        }
+        @media (min-width: 992px) {
+          .hero__title {
+            font-size: 3.125rem;
+            line-height: 1.08;
+          }
+        }
+        @media (min-width: 1200px) {
+          .hero__title {
+            font-size: 4.5rem;
+            line-height: 1.0555555556;
+          }
+        }
+        .hero__title span {
+          color: #f7a30a;
+        }
+        .hero__info {
+          width: 100%;
+        }
+        .hero__description {
+          font-size: 1.25rem;
+          line-height: 1.45;
+        }
+        @media (min-width: 992px) {
+          .hero__description {
+            font-size: 1.375rem;
+            line-height: 1.4545454545;
+          }
+        }
+        .hero__description p {
+          color: var(--wp--preset--color--light);
+        }
+        .hero__link {
+          margin-top: 1.5rem;
+        }
+        .hero__link .wp-block-button__link {
+          font-size: 1rem;
+          line-height: 1.375;
+          padding: 0.875rem 1.375rem;
+        }
+        
+      </style>
+	  <section id="section-1" class="hero">
+      <div class="hero__container container">
+        <div class="hero__media">
+          <div class="hero__media__img">
+            <img
+              width="493"
+              height="740"
+              src="https://betelec.ch/wp-content/uploads/2023/04/paulina-milde-jachowska-wgQqF8DVFmo-unsplash-493x740.jpg"
+              class="attachment-image-hero size-image-hero"
+              alt=""
+              decoding="async"
+              fetchpriority="high"
+              srcset="
+                bg.jpg
+              "
+              sizes="(max-width: 493px) 100vw, 493px"
+            />
+          </div>
+        </div>
+        <div class="hero__content">
+          <h2 class="hero__title section__title">
+            Nos<br />
+            <span> Références </span>
+          </h2>
+          <div class="hero__info">
+            <div class="hero__description section__description">
+              <p>
+                <span
+                  data-sheets-value='{"1":2,"2":"Leaders de l&apos;ingénierie-conseil en électricité et expert en solutions énergétiques et de la sécurité du bâtiment, nous avons réalisé des projets majeurs en Suisse romande. Notre expertise et notre polyvalence nous permet de traiter des projets complexes et de grande envergure."}'
+                  data-sheets-userformat='{"2":12545,"3":{"1":0,"3":1},"11":4,"15":"Playfair Display","16":9}'
+                  >Découvrez nos projets
+Basés en Suisse romande, nous accompagnons une grande diversité de clients dans la conception et la réalisation de projets photovoltaïques, grâce à notre expertise en ingénierie, conseil et accompagnement personnalisé.</span
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> 
+   <section class="projects">
+  <div class="filter-container">
+    <label for="filter">Filtrer par statut :</label>
+    <select id="filter" name="status">
+      <option value="all">Toutes les références</option>
+      <option value="available">Disponible</option>
+      <option value="unavailable">Indisponible</option>
+    </select>
+  </div>
+
+  <div class="images-grid">
+  <div class="project-card">
+  <div class="image-container">
+    <img src="https://article19.ma/accueil/wp-content/uploads/2020/09/9D9992B1-2799-4337-A084-08E5EC57E309.jpeg" alt="Projet 1" />
+    <div class="info-hover">
+      <p>Statut : Terminé</p>
+      <p>Année : 2023</p>
+    </div>
+  </div>
+  <h3>Titre du projet 1</h3>
+</div>
+
+    <div class="project-card">
+  <div class="image-container">
+    <img src="https://article19.ma/accueil/wp-content/uploads/2020/09/9D9992B1-2799-4337-A084-08E5EC57E309.jpeg" alt="Projet 1" />
+    <div class="info-hover">
+      <p>Statut : Terminé</p>
+      <p>Année : 2023</p>
+    </div>
+  </div>
+  <h3>Titre du projet 2</h3>
+</div>
+    <div class="project-card">
+  <div class="image-container">
+    <img src="https://article19.ma/accueil/wp-content/uploads/2020/09/9D9992B1-2799-4337-A084-08E5EC57E309.jpeg" alt="Projet 1" />
+    <div class="info-hover">
+      <p>Statut : Terminé</p>
+      <p>Année : 2023</p>
+    </div>
+  </div>
+  <h3>Titre du projet 3</h3>
+</div>
+    <div class="project-card">
+  <div class="image-container">
+    <img src="https://article19.ma/accueil/wp-content/uploads/2020/09/9D9992B1-2799-4337-A084-08E5EC57E309.jpeg" alt="Projet 1" />
+    <div class="info-hover">
+      <p>Statut : Terminé</p>
+      <p>Année : 2023</p>
+    </div>
+  </div>
+  <h3>Titre du projet 4</h3>
+</div>
+    <div class="project-card">
+  <div class="image-container">
+    <img src="https://article19.ma/accueil/wp-content/uploads/2020/09/9D9992B1-2799-4337-A084-08E5EC57E309.jpeg" alt="Projet 1" />
+    <div class="info-hover">
+      <p>Statut : Terminé</p>
+      <p>Année : 2023</p>
+    </div>
+  </div>
+  <h3>Titre du projet 5</h3>
+</div>
+    <div class="project-card">
+  <div class="image-container">
+    <img src="https://article19.ma/accueil/wp-content/uploads/2020/09/9D9992B1-2799-4337-A084-08E5EC57E309.jpeg" alt="Projet 1" />
+    <div class="info-hover">
+      <p>Statut : Terminé</p>
+      <p>Année : 2023</p>
+    </div>
+  </div>
+  <h3>Titre du projet 6</h3>
+</div>
+  </div>
+</section>
+
+  </body>
+</html>
